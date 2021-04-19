@@ -51,6 +51,26 @@ public:
         return Fibo(n-1) + Fibo(n-2);
     }
 
+    /**
+     * 재귀함수로 구현하는 이진 탐색 알고리즘
+     * 
+     */
+    int BSearchRecur(int ar[], int left, int right, int target) {
+        int mid;
+        if(left > right) { // 왼쪽과 오른쪽이 엇갈리면 실패.
+            return -1;
+        }
+        mid = (left + right) / 2;
+
+        if(ar[mid] == target) { // mid와 target이 같다면
+            return mid; // 그게 바로 답
+        } else if(target < ar[mid]) { // target이 mid보다 작다면,
+            return BSearchRecur(ar, left, mid-1, target); // 왼쪽에서 다시 탐색 시작.
+        } else { // target이 mid보다 크다면,
+            return BSearchRecur(ar, mid+1, right, target); // 오른쪽에서 다시 탐색 시작.
+        }
+    }
+
     int dummy() {
         return 123;
     }
@@ -61,17 +81,24 @@ public:
 int main() {
     Solution sol;
     // cout << "ans = " << sol.dummy();
+    
     // sol.Recursive(3);
+    
     // printf("1! = %d \n", sol.Factorial(1));
     // printf("2! = %d \n", sol.Factorial(2));
     // printf("3! = %d \n", sol.Factorial(3));
     // printf("4! = %d \n", sol.Factorial(4));
     // printf("9! = %d \n", sol.Factorial(9));
-    int i = 1;
-    for(;i < 15; i++) {
-        printf("%d ", sol.Fibo(i));
-    }
+    
+    // int i = 1;
+    // for(;i < 15; i++) {
+    //     printf("%d ", sol.Fibo(i));
+    // }
 
+    int arr[] = {1, 3, 5, 7, 9};
+    int idx = sol.BSearchRecur(arr, 0, sizeof(arr)/sizeof(int) - 1, 7);
+    printf("답 : %d \n", idx);
+    
     
     return 0;
 }

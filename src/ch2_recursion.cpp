@@ -71,6 +71,21 @@ public:
         }
     }
 
+    /**
+     * 하노이 타워. 이 문제도 DP가 숨어있다.
+     * 원반 n개를 A->C로 옮기는 방법은 원반 (n-1)개를 A->B로 옮기는 방법+알파 이다.
+     */
+
+    void HanoiTowerMove(int num, char A, char B, char C) {
+        if(num == 1) {
+            printf("원반1을 %c에서 %c로 이동 \n", A, C);
+        } else {
+            HanoiTowerMove(num-1, A, C, B);
+            printf("원반%d을 %c에서 %c로 이동 \n", num, A, C);
+            HanoiTowerMove(num-1, B, A, C);
+        }
+    }
+
     int dummy() {
         return 123;
     }
@@ -95,10 +110,12 @@ int main() {
     //     printf("%d ", sol.Fibo(i));
     // }
 
-    int arr[] = {1, 3, 5, 7, 9};
-    int idx = sol.BSearchRecur(arr, 0, sizeof(arr)/sizeof(int) - 1, 7);
-    printf("답 : %d \n", idx);
+    // int arr[] = {1, 3, 5, 7, 9};
+    // int idx = sol.BSearchRecur(arr, 0, sizeof(arr)/sizeof(int) - 1, 7);
+    // printf("답 : %d \n", idx);
     
+    // 하노이 타워
+    sol.HanoiTowerMove(10, 'A', 'B', 'C');
     
     return 0;
 }

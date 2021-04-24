@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ArrayList.h"
+#include "../ext/Ch03/ArrayList/ArrayList.c"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ public:
     int firstTest() {
         // 책에서 제공한 라이브러리. ext/ArrayList
         List list;
-        int data;
+        int data = 0;
         ListInit(&list);
 
         // 데이터 5개 저장
@@ -58,6 +58,44 @@ public:
         return 0;
     }
 
+    /**
+     * 문제 03 - 1, 리스트 라이브러리의 활용
+     */
+    int qThirdOne() {
+        List list;
+        int data = 0;
+        ListInit(&list);
+
+        // 1) 1 ~ 9 까지 저장.
+        for(int i = 1; i <= 9; i++) {
+            LInsert(&list, i);
+        }
+
+        // 리스트에 저장된 값을 조회하고 그 합을 계산.
+        LFirst(&list, &data);
+        int sum = data;
+        while(LNext(&list, &data)) {
+            sum += data;
+        }
+        printf("리스트 합 : %d\n", sum);
+
+        // 2의 배수, 3의 배수 삭제
+        LFirst(&list, &data);
+        do {
+            if(data % 2 == 0 || data % 3 == 0) {
+                LRemove(&list);
+            }
+        } while(LNext(&list, &data));
+
+        // 리스트 저장된 데이터 출력
+        LFirst(&list, &data);
+        do {
+            printf("리스트 데이터 : %d\n", data);
+        } while(LNext(&list, &data));
+
+        return 0;
+    }
+
     int dummy() {
         return 123;
     }
@@ -67,6 +105,7 @@ public:
 // Driver code
 int main() {
     Solution sol;
-    sol.firstTest();
+    // sol.firstTest();
+    sol.qThirdOne();
     return 0;
 }

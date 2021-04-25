@@ -1,2 +1,2 @@
 #!/bin/zsh
-g++ -D_DEBUG -g -o ../bin/ch3_list_2 ../src/ch3_list_2.cpp -lpthread
+g++ -D_DEBUG -g -o ../bin/ch3_list_3 ../src/ch3_list_3.cpp -lpthread

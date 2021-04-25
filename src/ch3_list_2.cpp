@@ -10,7 +10,7 @@ using namespace std;
  */
 class Solution {
 public:
-    // 값 저장을 Point 좌표로
+    // 값 저장을 Point 좌표로 바꾼다.
     int pointListMain() {
         List list;
         Point compPos;
@@ -75,7 +75,6 @@ public:
 
         return 0;
     }
-
     int dummy() {
         return 123;
     }

@@ -1,0 +1,6 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.associations": {
+        "arraylist.c": "cpp"
+    }
+}

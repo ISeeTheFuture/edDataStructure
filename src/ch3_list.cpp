@@ -71,7 +71,7 @@ public:
             LInsert(&list, i);
         }
 
-        // 리스트에 저장된 값을 조회하고 그 합을 계산.
+        // 2) 리스트에 저장된 값을 조회하고 그 합을 계산.
         LFirst(&list, &data);
         int sum = data;
         while(LNext(&list, &data)) {
@@ -79,7 +79,7 @@ public:
         }
         printf("리스트 합 : %d\n", sum);
 
-        // 2의 배수, 3의 배수 삭제
+        // 3) 2의 배수, 3의 배수 삭제
         LFirst(&list, &data);
         do {
             if(data % 2 == 0 || data % 3 == 0) {
@@ -87,7 +87,7 @@ public:
             }
         } while(LNext(&list, &data));
 
-        // 리스트 저장된 데이터 출력
+        // 4) 리스트 저장된 데이터 출력
         LFirst(&list, &data);
         do {
             printf("리스트 데이터 : %d\n", data);
@@ -95,6 +95,7 @@ public:
 
         return 0;
     }
+
 
     int dummy() {
         return 123;

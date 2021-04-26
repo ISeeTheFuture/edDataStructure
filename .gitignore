@@ -1,3 +1,5 @@
+*.dYSM
+
 ### C++ ###
 # Prerequisites
 *.d

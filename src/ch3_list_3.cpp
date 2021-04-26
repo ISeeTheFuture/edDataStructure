@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "ArrayList.c"
-#include "NameCard.h"
+#include "NameCard.c"
 
 using namespace std;
 
